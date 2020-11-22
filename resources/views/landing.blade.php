@@ -1,110 +1,221 @@
-<!DOCTYPE html>
-<html>
-	<head>
-		<title>BlacKFirday</title>
-		<link rel="stylesheet" href="{{ asset('css/all.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
-		<link rel="stylesheet" href="{{ asset('css/style.css') }}">
-		<link href="https://fonts.googleapis.com/css?family=Courgette|Lobster" rel="stylesheet">
-	</head>
-	<style>
-		.first_nav{
-			background-color: #ffffff00;
-			position: absolute;
-			z-index: 99;
-			padding: 2%;
-			width: 100%;
-		}
+@extends('layout')
 
-		.first_nav .navbar-text li{
-			margin-right:50px
-		}
-		.image-slider .carousel-caption{
-			right: 0%;
-			left:69%;
-			bottom:22%;
-			text-align:left;
-			color:black
-		}
-		.image-slider .carousel-caption h1{
-			font-size: 55px;
-			color: #e66ab2;
-			font-weight: bolder
-		}
-		.image-slider .carousel-caption button{
-			border-radius: 50px;
-			padding: 18px 48px;
-		}
-		.navbar-brand{ 
-			font-size: 37px;
-			font-weight: bolder;
-			font-family: Lobster;
-		}
-	</style>
-<body>
-    
-</body>
+@section('content')
 
-        
-	<!-- -------------------------------------------------------- -->
-	<!-- -------------------------------------------------------- -->	
-	<div class="first_nav">
-		<nav class="navbar navbar-expand-lg navbar-light">
-			<a class="navbar-brand" href="#" style="color: #e66ab2;">BlackFriday</a>
-			<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
-				<span class="navbar-toggler-icon"></span>
-			</button>
-			<div class="collapse navbar-collapse" id="navbarText">
-				<ul class="navbar-nav mr-auto">
-					<li class="nav-item active">
-						<a class="nav-link" href="#"> <span class="sr-only">(current)</span></a>
-					</li>
-				</ul>
-				<span class="navbar-text">
-					<ul class="navbar-nav mr-auto">
-						<li class="nav-item active">
-							<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">Products</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#">About us</a>
-						</li>
+	<div  id="trending" class="products mt-5" style="background-color: #e2e2e233;">
 
-						<li class="nav-item">
-							<a class="nav-link" href="#">Contact us</a>
-						</li>
-						<li class="nav-item">
-							<a class="nav-link" href="#" style=" background-color: #17a2b8;
-																color: white;
-																border-radius: 50px;
-																padding: 7px 20px;">Get Started</a>
-						</li>
-					</ul>
-				</span>
+		<div class="container">
+
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Trending <b>Products</b></h2>
+					<div id="myCarousel" class="carousel slide" data-ride="carousel" data-interval="0">
+					<!-- Carousel indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel" data-slide-to="1"></li>
+						<li data-target="#myCarousel" data-slide-to="2"></li>
+					</ol>   
+					<!-- Wrapper for carousel items -->
+					<div class="carousel-inner">
+						@php
+							$products = \App\Models\Product::where('trending',1)->orderBy('updated_at', 'desc')->take(4)->get();
+						@endphp
+
+							<div class="carousel-item active">
+								<div class="row">
+									@foreach($products as $product)
+										<div class="col-sm-3">
+											<div class="thumb-wrapper">
+												<div class="img-box">
+													<img src="{{ asset('uploads/' . $product->image) }}" class="img-fluid" alt="">
+												</div>
+												<div class="thumb-content">
+													<h4>{{$product->name}}</h4>
+													<p class="item-price"><span>EGP{{$product->price}}</span></p>
+													
+													<a href="{{route('order',$product->id)}}" class="btn btn-primary">Order Now</a>
+												</div>						
+											</div>
+										</div>
+									@endforeach
+								</div>
+							</div>
+
+							@php
+								$products__ = \App\Models\Product::where('trending',1)->get();
+							@endphp
+
+							@for($i = 0 ; $i < ($products__->count() - 4) ; $i+=4)
+
+								@php
+									$products = \App\Models\Product::where('trending',1)->skip(4+$i)->take(4)->get();
+								@endphp
+									<div class="carousel-item ">
+										<div class="row"> 
+											@foreach($products as $product)
+												<div class="col-sm-3">
+													<div class="thumb-wrapper">
+														<div class="img-box">
+															<img src="{{ asset('uploads/' . $product->image) }}" class="img-fluid" alt="">
+														</div>
+														<div class="thumb-content">
+															<h4>{{$product->name}}</h4>
+															<p class="item-price"><span>EGP{{$product->price}}</span></p>
+															
+															<a href="{{route('order',$product->id)}}" class="btn btn-primary">Order Now</a>
+														</div>						
+													</div>
+												</div>
+											@endforeach		 
+										</div>
+									</div>
+
+							@endfor
+
+					</div>
+
+					<!-- Carousel controls -->
+					<a class="carousel-control-prev" href="#myCarousel" data-slide="prev">
+						<i style="color:black" class="fas fa-angle-left"></i>
+					</a>
+					<a class="carousel-control-next" href="#myCarousel" data-slide="next">
+						<i class="fas fa-angle-right"></i>
+					</a>
+					
+				</div>
+				</div>
+
 			</div>
-		</nav>
+
+		</div>
+
 	</div>
-	<div id="carouselExampleSlidesOnly" class="carousel slide image-slider" data-ride="carousel">
-		<div class="carousel-inner" style="background-color: #efefef">
-			<div class="carousel-item active">
-				<img src="{{asset('images/undraw_deliveries.svg')}}" class="img-fluid" alt="">
-				<div class="carousel-caption d-none d-md-block" > 
-					<h1>Buy</h1>
-						<h1>Online</h1>
-					<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit Lorem ipsum dolor sit amet, 
-						consectetur adipiscing elit. Lorem ipsum dolor sit amet, consectetur adipiscing elit</p>
-					<button class="btn btn-info btn-lg mt-4">Read MOre</button>
+
+
+	<div class="products " style="overflow-x: hidden;">
+			<div class="row">
+				<div class="col-md-12">
+					<h2>Our <b>Categories</b></h2>
+					<div id="myCarousel2" class="carousel slide" data-ride="carousel" data-interval="0">
+					<!-- Carousel indicators -->
+					<ol class="carousel-indicators">
+						<li data-target="#myCarousel2" data-slide-to="0" class="active"></li>
+						<li data-target="#myCarousel2" data-slide-to="1"></li>
+						<li data-target="#myCarousel2" data-slide-to="2"></li>
+					</ol>   
+					<!-- Wrapper for carousel items -->
+					<div class="carousel-inner">
+						@php
+							$categories = \App\Models\Category::take(8)->get();
+						@endphp
+						<div class="carousel-item active">
+							<div class="row">
+								@foreach($categories as $category)
+										<a class="col-sm-3" href="{{route('category',$category->id)}}">
+											<div class="thumb-wrapper">
+												<div class="img-box">
+													<img src="{{ asset('uploads/' . $category->image) }}" class="img-fluid" alt="">
+												</div>
+												<div class="thumb-content">
+													<h4>{{$category->name}}</h4>
+												</div>						
+											</div>
+										</a>
+								@endforeach
+							</div>
+						</div>
+
+						@php
+							$categories__ = \App\Models\Category::get();
+						@endphp
+
+						@for($i = 0 ; $i < ($categories__->count() - 8) ; $i+=8)
+
+							@php
+								$categories = \App\Models\Category::skip(8+$i)->take(8)->get();
+							@endphp
+
+							<div class="carousel-item">
+								<div class="row">
+									@foreach($categories as $category)
+										<a class="col-sm-3" href="{{route('category',$category->id)}}">
+											<div class="thumb-wrapper">
+												<div class="img-box">
+													<img src="{{ asset('uploads/' . $category->image) }}" class="img-fluid" alt="">
+												</div>
+												<div class="thumb-content">
+													<h4>{{$category->name}}</h4>
+												</div>						
+											</div>
+										</a>
+									@endforeach 
+								</div>
+							</div>
+
+						@endfor
+
+					</div>
+					<!-- Carousel controls -->
+					<a class="carousel-control-prev" href="#myCarousel2" data-slide="prev">
+						<i style="color:black" class="fas fa-angle-left"></i>
+					</a>
+					<a class="carousel-control-next" href="#myCarousel2" data-slide="next">
+						<i class="fas fa-angle-right"></i>
+					</a>
+				</div>
 				</div>
 			</div>
+	</div>
+
+	<div style="background-color:#e2e2e294">
+		<div class="container contact-form" style="background-color:#e2e2e200">
+				<div class="contact-image">
+					<img src="https://image.ibb.co/kUagtU/rocket_contact.png" alt="rocket_contact"/>
+				</div>
+				<form method="post" action="{{route('contact-us.submit')}}">
+					@csrf
+					<h3>Drop Us a Message</h3>
+				<div class="row">
+						<div class="col-md-6">
+							<div class="form-group">
+								<input type="text" name="name" class="form-control" placeholder="Your Name *" value="" required/>
+								@if ($errors->has('name'))
+									<span class="help-block">
+										<strong style="color:red">{{ $errors->first('name') }}</strong>
+									</span>
+								@endif
+							</div>
+							<div class="form-group">
+								<input type="text" name="email" class="form-control" placeholder="Your Email *" value="" required/>
+								@if ($errors->has('email'))
+									<span class="help-block">
+										<strong style="color:red">{{ $errors->first('email') }}</strong>
+									</span>
+								@endif
+							</div>
+							<div class="form-group">
+								<input type="text" name="phone_number" class="form-control" placeholder="Your Phone Number *" value="" required/>
+								@if ($errors->has('phone_number'))
+									<span class="help-block">
+										<strong style="color:red">{{ $errors->first('phone_number') }}</strong>
+									</span>
+								@endif
+							</div>
+							<div class="form-group">
+								<input type="submit" name="btnSubmit" class="btnContact" value="Send Message" />
+							</div>
+						</div>
+						<div class="col-md-6">
+							<div class="form-group">
+								<textarea name="note" class="form-control" placeholder="Your Message *" style="width: 100%; height: 150px;"></textarea>
+							</div>
+						</div>
+					</div>
+				</form>
+
 		</div>
 	</div>
-	<!-- -------------------------------------------------------- -->
-	<!-- -------------------------------------------------------- -->	
 
-	<script src="{{ asset('js/jquery.min.js') }}"></script>
-	<script src="{{ asset('js/bootstrap.min.js') }}"></script>
-	<script src="{{ asset('js/my_script.js') }}"></script>	 
-</body>
-</html>
+	
+@endsection

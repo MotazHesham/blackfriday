@@ -1,0 +1,316 @@
+.first_nav{
+    background-color: #ffffff00;
+    position: absolute;
+    z-index: 99;
+    padding: 2%;
+    width: 100%;
+}
+
+.first_nav .navbar-text li{
+    margin-right:50px
+}
+.image-slider .carousel-caption{
+    right: 0%;
+    left:69%;
+    bottom:22%;
+    text-align:left;
+    color:black
+}
+.image-slider .carousel-caption h1{
+    font-size: 55px;
+    color: #e66ab2;
+    font-weight: bolder
+}
+.image-slider .carousel-caption button{
+    border-radius: 50px;
+    padding: 18px 48px;
+}
+.navbar-brand{ 
+    font-size: 37px;
+    font-weight: bolder;
+    font-family: Lobster;
+}
+
+h2 {
+color: #000;
+font-size: 26px;
+font-weight: 300;
+text-align: center;
+text-transform: uppercase;
+position: relative;
+margin: 30px 0 80px;
+}
+h2 b {
+color: #e66ab2;
+}
+h2::after {
+content: "";
+width: 100px;
+position: absolute;
+margin: 0 auto;
+height: 4px;
+background: rgba(0, 0, 0, 0.2);
+left: 0;
+right: 0;
+bottom: -20px;
+}
+.products .carousel {
+margin: 50px auto;
+padding: 0 70px;
+}
+.products .carousel .carousel-item {
+min-height: 330px;
+text-align: center;
+overflow: hidden;
+}
+.products .carousel .carousel-item .img-box {
+height: 160px;
+width: 100%;
+position: relative;
+}
+.products .carousel .carousel-item img {	
+max-width: 100%;
+max-height: 100%;
+display: inline-block;
+position: absolute;
+bottom: 0;
+margin: 0 auto;
+left: 0;
+right: 0;
+}
+.products .carousel .carousel-item h4 {
+font-size: 18px;
+margin: 10px 0;
+}
+.products .carousel .carousel-item .btn {
+color: #333;
+border-radius: 0;
+font-size: 11px;
+text-transform: uppercase;
+font-weight: bold;
+background: none;
+border: 1px solid #ccc;
+padding: 5px 10px;
+margin-top: 5px;
+line-height: 16px;
+}
+.products .carousel .carousel-item .btn:hover, .carousel .carousel-item .btn:focus {
+color: #fff;
+background: #000;
+border-color: #000;
+box-shadow: none;
+}
+.products.carousel .carousel-item .btn i {
+font-size: 14px;
+font-weight: bold;
+margin-left: 5px;
+}
+.products.carousel .thumb-wrapper {
+text-align: center;
+}
+.products .carousel .thumb-content {
+padding: 15px;
+}
+.products .carousel-control-prev, .carousel-control-next {
+height: 100px;
+width: 40px;
+background: none;
+margin: auto 0;
+background: rgba(0, 0, 0, 0.2);
+}
+.products.carousel-control-prev i, .carousel-control-next i {
+font-size: 30px;
+position: absolute;
+top: 50%;
+display: inline-block;
+margin: -16px 0 0 0;
+z-index: 5;
+left: 0;
+right: 0;
+color: rgba(0, 0, 0, 0.8);
+text-shadow: none;
+font-weight: bold;
+}
+.products .carousel-control-prev i {
+margin-left: -3px;
+}
+.products .carousel-control-next i {
+margin-right: -3px;
+}
+.products .carousel .item-price {
+font-size: 13px;
+padding: 2px 0;
+}
+.products .carousel .item-price strike {
+color: #999;
+margin-right: 5px;
+}
+.products .carousel .item-price span {
+color: #86bd57;
+font-size: 110%;
+}	
+.products .carousel .carousel-indicators {
+bottom: -50px;
+}
+.products .carousel-indicators li, .carousel-indicators li.active {
+width: 10px;
+height: 10px;
+margin: 4px;
+border-radius: 50%;
+border-color: transparent;
+border: none;
+}
+.products.carousel-indicators li {	
+background: rgba(0, 0, 0, 0.2);
+}
+.products .carousel-indicators li.active {	
+background: rgba(0, 0, 0, 0.6);
+}
+
+.categories .product-card-overlay{
+    background-color: #0000006e;
+    width: 100%;
+    height: 86%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transition: 0.3s;
+}
+
+.categories .product-card:hover .product-card-overlay{
+    opacity:1;
+}
+
+.contact-form{
+    background: #fff;
+    margin-top: 10%;
+    width: 70%;
+}
+.contact-form .form-control{
+    border-radius:1rem;
+}
+.contact-image{
+    text-align: center;
+}
+.contact-image img{
+    border-radius: 6rem;
+    width: 11%;
+    margin-top: -3%;
+    transform: rotate(29deg);
+}
+.contact-form form{
+    padding: 14%;
+}
+.contact-form form .row{
+    margin-bottom: -7%;
+}
+.contact-form h3{
+    margin-bottom: 8%;
+    margin-top: -10%;
+    text-align: center;
+    color: #0062cc;
+}
+.contact-form .btnContact {
+    width: 50%;
+    border: none;
+    border-radius: 1rem;
+    padding: 1.5%;
+    background: #dc3545;
+    font-weight: 600;
+    color: #fff;
+    cursor: pointer;
+}
+.btnContactSubmit
+{
+    width: 50%;
+    border-radius: 1rem;
+    padding: 1.5%;
+    color: #fff;
+    background-color: #0062cc;
+    border: none;
+    cursor: pointer;
+}
+
+/* ----------------------------------------------------------------*/
+/* ----------------------------------------------------------------*/
+
+    /* Start footer*/
+
+    footer {
+        width: 100%;
+        display: inline-block;
+        height: 70px;
+        background-color: #515254db;
+        box-sizing:border-box;
+        margin: -4px;
+        padding: 0;
+    }
+
+    .copyright {
+        width: 50%;
+        float: left;
+        padding-top: 25px;
+    }
+
+    footer p{
+        padding-left: 10%;
+        color: white;
+        font-weight: bolder;
+        font-size: 12px;
+        text-transform: capitalize;
+        letter-spacing: 1px;
+    }
+
+    .social{
+        width: 50%;
+        float: right;
+    }
+
+    .social a{
+        float: left;
+        line-height: 70px;
+        text-decoration: none;
+        color: white;
+        text-align: center;
+        font-weight: bold; 
+        -webkit-transition: all .3s ease-in-out;
+        -moz-transition: all .3s ease-in-out;
+        transition: all .3s ease-in-out;
+    }
+
+    .social a:hover{
+        background-color: #222;
+    }
+
+    .linked {
+      background-color: #1E83AE;
+      font-size: 1.2em;
+      width: 20%;
+    }
+
+    .face {
+      background-color: #3D5B94;
+      font-size: 1.2em;
+      width: 20%;
+    }
+
+    .tweet {
+      background-color: #3DACDD;
+      font-size: 1.2em;
+      width: 20%;
+    }
+
+    .support {
+      background-color:#6dcd9a;
+      font-size: 0.8em;
+      width: 40%;
+    }
+
+
+
+/* End footer*/
+
+/* ----------------------------------------------------------------*/
+/* ----------------------------------------------------------------*/
+

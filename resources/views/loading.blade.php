@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
 	<head>
-		<title>BlacKFirday</title>
+        <title>BlacKFriday</title>
+        <link rel="icon" href="{{ asset('images/shamii.png') }}">
 		<link rel="stylesheet" href="{{ asset('css/all.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/bootstrap.min.css') }}">
 		<link rel="stylesheet" href="{{ asset('css/loading.css') }}">
@@ -69,7 +70,7 @@
 	<script src="{{ asset('js/jquery.min.js') }}"></script>
     <script src="{{ asset('js/bootstrap.min.js') }}"></script>
     <script>
-        setTimeout(function(){window.location='home'}, 10000);
+        setTimeout(function(){window.location='home'}, 6000);
         var countDate = new Date('Nov 27,2020 00:00:00').getTime();
         
         function blackFriday(){

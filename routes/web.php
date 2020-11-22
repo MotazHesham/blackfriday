@@ -16,6 +16,17 @@ use App\Http\Controllers\HomeController;
 
 Route::get('/', function () {
     return view('loading');
-});
+})->name('loading');
 
 Route::get('/home','HomeController@landing')->name('home');
+
+Route::get('/categories','CategoriesController@categories')->name('categories');
+
+Route::get('/category/{id}','CategoriesController@category')->name('category');
+
+Route::get('/order/{id}','OrdersController@order')->name('order');
+
+Route::post('/order','OrdersController@order_submit')->name('order.submit');
+
+
+Route::post('/contactus','ContactusController@submit')->name('contact-us.submit');

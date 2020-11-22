@@ -1,30 +1,20 @@
 $(document).ready(function() {
-    // function checkWidth() {
-    //     var windowSize = $(window).width(); 
-    //     if (windowSize <= 479) {
-    //         $('#slider-img').css("height","750px");
-    //         $('#two-images').css({'top':'36px','right':'-50px'});
-    //         $('#two-images .card').css('width','15rem');
-    //     }
-    //     else if ( windowSize <= 719) {
-    //         $('#slider-img').css("height","850px");
-    //         $('#two-images').css({'top':'36px','right':'-50px'});
-    //         $('#two-images .card').css('width','15rem');
-    //     }
-    //     else if ( windowSize <= 960) {
-    //         $('#slider-img').css("height","900px");
-    //         $('#two-images').css({'top':'36px','right':'-75px'});
-    //         $('#two-images .card').css('width','19rem');
-    //     }
-    //     else if (windowSize > 960) {
-    //         $('#slider-img').css("height","1050px");
-    //         $('#two-images').css({'top':'36px','right':'-75px'});
-    //         $('#two-images .card').css('width','21rem');
-    //     }
-    // }
+    $("#products").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("#trending").offset().top
+        }, 1500);
+    });
 
-    // // Execute on load
-    // checkWidth();
-    // // Bind event listener
-    // $(window).resize(checkWidth);
+    $("#contactus").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $(".contact-form").offset().top
+        }, 1500);
+    });
+
+    $("#aboutus").click(function() {
+        $([document.documentElement, document.body]).animate({
+            scrollTop: $("footer").offset().top
+        }, 1500);
+    });
+
 })
